@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Móvil Express - Gateway de Pagos</title>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: 'var(--color-primary)',
+                            dark: 'var(--color-primary-dark)',
+                            darker: 'var(--color-primary-darker)',
+                            light: 'var(--color-primary-light)',
+                            lighter: 'var(--color-primary-lighter)',
+                        },
+                        bg: {
+                            DEFAULT: '#f5f7fa',
+                            alt: '#eef1f5',
+                        },
+                        whatsapp: {
+                            DEFAULT: '#25d366',
+                            dark: '#1da851',
+                        },
+                        text: {
+                            DEFAULT: '#1a1a2e',
+                            secondary: '#4a5568',
+                            light: '#718096',
+                            muted: '#a0aec0',
+                        }
+                    },
+                    boxShadow: {
+                        'card': '0 4px 24px var(--shadow-color), 0 1px 3px rgba(0, 0, 0, 0.08)',
+                    },
+                    animation: {
+                        'fadeInUp': 'fadeInUp 0.6s ease-out',
+                        'shake': 'shake 0.5s ease-in-out',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        shake: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '20%, 60%': { transform: 'translateX(-6px)' },
+                            '40%, 80%': { transform: 'translateX(6px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'translateX(-100%)' },
+                            '50%': { transform: 'translateX(100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            /* Default Green Theme */
+            --color-primary: #20963b;
+            --color-primary-dark: #176b2b;
+            --color-primary-darker: #0f4a1d;
+            --color-primary-light: #e8f5eb;
+            --color-primary-lighter: #f0faf2;
+            --color-bg: #f5f7fa;
+            --color-bg-alt: #eef1f5;
+            --shadow-color: rgba(32, 150, 59, 0.08);
+        }
+
+        body {
+            background-color: var(--color-bg);
+            background-image: 
+                radial-gradient(ellipse at top, var(--color-primary-lighter) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, var(--color-bg-alt) 0%, var(--color-bg) 70%);
+            background-attachment: fixed;
+            transition: background-image 0.5s ease;
+        }
+        
+        /* Custom scrollbar for settings panel */
+        .settings-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .settings-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .settings-scroll::-webkit-scrollbar-thumb {
+            background: #ccc; 
+            border-radius: 3px;
+        }
+        .settings-scroll::-webkit-scrollbar-thumb:hover {
+            background: #aaa; 
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "react": "https://esm.sh/react@^19.2.1",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+    "firebase/database": "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js",
+    "firebase/": "https://esm.sh/firebase@^12.6.0/"
+  }
+}
+</script>
+</head>
+<body class="bg-bg text-text min-h-[100dvh] flex flex-col items-center justify-center p-4 sm:p-5 antialiased overflow-y-auto">
+    <div id="root" class="w-full max-w-[440px]"></div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name": "Pago Móvil Express",
+  "description": "Calculadora y facilitador de pagos móviles con tasa de cambio en tiempo real y generación de mensajes para WhatsApp.",
+  "requestFramePermissions": []
+}
