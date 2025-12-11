@@ -264,10 +264,16 @@ export default function App() {
                 mimeType: file.type,
                 file: base64Content
             };
+            
+            // Fix for CORS: Use text/plain to avoid complex preflight checks and ensure GAS accepts it
             const response = await fetch(config.googleScriptUrl, {
                 method: "POST",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8",
+                },
                 body: JSON.stringify(payload)
             });
+            
             const data = await response.json();
             if (data.result === "success") return data.url;
             return null;
@@ -307,7 +313,7 @@ export default function App() {
         if (selectedFile) {
             const uploadedLink = await uploadImageToDrive(selectedFile);
             if (!uploadedLink) {
-                showToast("Error subiendo imagen. Verifica tu conexión.", "error");
+                showToast("Error subiendo imagen. Revisa CORS/Script.", "error");
                 setIsUploading(false);
                 return;
             }
